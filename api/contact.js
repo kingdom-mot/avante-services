@@ -12,7 +12,10 @@
 //    onboarding@resend.dev test address. Update FROM_EMAIL below once done.
 // 5. Redeploy on Vercel after adding the environment variable.
 
-const TO_EMAIL = 'bile@avanteservices.co.uk';
+// TEMPORARY TEST MODE: pointed at the Resend account owner's email
+// since the domain isn't verified yet, so Resend will only deliver to this
+// address. Change back to 'bile@avanteservices.co.uk' once domain verified.
+const TO_EMAIL = 'dreamsavvysolutions@gmail.com';
 const FROM_EMAIL = 'Avanté Services Website <onboarding@resend.dev>'; // swap to an @avanteservices.co.uk address once your domain is verified in Resend
 
 function escapeHtml(str) {
