@@ -95,9 +95,7 @@ module.exports = async function handler(req, res) {
     if (!resendRes.ok) {
       const errText = await resendRes.text().catch(() => '');
       console.error('Resend API error:', resendRes.status, errText);
-      // TEMPORARY: exposing the real Resend error for debugging.
-      // Revert to a generic message once the issue is fixed.
-      return res.status(502).json({ success: false, error: `Resend ${resendRes.status}: ${errText}` });
+      return res.status(502).json({ success: false, error: 'Failed to send email.' });
     }
 
     return res.status(200).json({ success: true });
