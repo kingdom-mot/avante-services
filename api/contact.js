@@ -2,21 +2,12 @@
 // Vercel serverless function — receives the contact form submission
 // from contact.html and emails it to bile@avanteservices.co.uk using Resend.
 //
-// SETUP REQUIRED before this works:
-// 1. Create a free account at https://resend.com
-// 2. Get an API key from the Resend dashboard
-// 3. In your Vercel project: Settings -> Environment Variables, add:
-//      RESEND_API_KEY = re_your_key_here
-// 4. (Recommended) Verify the avanteservices.co.uk domain in Resend so you
-//    can send from an @avanteservices.co.uk address instead of the shared
-//    onboarding@resend.dev test address. Update FROM_EMAIL below once done.
-// 5. Redeploy on Vercel after adding the environment variable.
+// Status: avanteservices.co.uk is verified in Resend (DKIM/SPF/DMARC all
+// green), RESEND_API_KEY is set in Vercel, and this sends from
+// no-reply@avanteservices.co.uk. No further setup needed.
 
-// TEMPORARY TEST MODE: pointed at the Resend account owner's email
-// since the domain isn't verified yet, so Resend will only deliver to this
-// address. Change back to 'bile@avanteservices.co.uk' once domain verified.
-const TO_EMAIL = 'dreamsavvysolutions@gmail.com';
-const FROM_EMAIL = 'Avanté Services Website <onboarding@resend.dev>'; // swap to an @avanteservices.co.uk address once your domain is verified in Resend
+const TO_EMAIL = 'bile@avanteservices.co.uk';
+const FROM_EMAIL = 'Avanté Services <no-reply@avanteservices.co.uk>'; // avanteservices.co.uk is verified in Resend
 
 function escapeHtml(str) {
   return String(str || '')
